@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/how_do_you_feel"
+        android:textSize="35dip"
+        android:gravity="center"
+        android:keepScreenOn="true"/>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/margin_between_widgets"
+        android:layout_marginTop="@dimen/margin_between_widgets"
+        android:layout_gravity="center"
+        android:gravity="center">
+        
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:text="@string/negative_valence"
+            android:textSize="@dimen/small_font_size"
+            android:singleLine="false"
+            android:layout_weight="1"
+            android:gravity="center" />
+        
+        <RadioGroup 
+            android:id="@+id/groupValence"
+            android:layout_width="0dip"
+            android:layout_weight="5"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            
+            <RadioButton 
+                android:id="@+id/valence1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/one"/>
+            
+            <RadioButton 
+                android:id="@+id/valence2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/two"/>
+            
+            <RadioButton 
+                android:id="@+id/valence3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/three"/>
+            
+            <RadioButton 
+                android:id="@+id/valence4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/four"/>
+            
+            <RadioButton 
+                android:id="@+id/valence5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/five"/>
+        </RadioGroup>
+        
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="@dimen/small_font_size"
+            android:text="@string/positive_valence"
+            android:gravity="center" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal" >
+        
+        <View
+	        android:layout_height="1dip"
+	        android:background="#0099CC"
+	        android:layout_width="0dip"
+	        android:layout_weight="8"
+            android:layout_gravity="center" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_between_widgets"
+        android:layout_marginBottom="@dimen/margin_between_widgets">
+        
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:text="@string/low_energy"
+            android:singleLine="false"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/small_font_size" />
+        
+        <RadioGroup 
+            android:id="@+id/groupEnergy"
+            android:layout_width="0dip"
+            android:layout_weight="5"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            
+            <RadioButton 
+                android:id="@+id/energy1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/one"/>
+            
+            <RadioButton 
+                android:id="@+id/energy2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/two"/>
+            
+            <RadioButton 
+                android:id="@+id/energy3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/three"/>
+            
+            <RadioButton 
+                android:id="@+id/energy4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/four"/>
+            
+            <RadioButton 
+                android:id="@+id/energy5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/five"/>
+        </RadioGroup>
+        
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="@string/high_energy"
+            android:gravity="center"
+            android:textSize="@dimen/small_font_size" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal" >
+        
+        <View
+            android:layout_height="1dip"
+            android:background="#0099CC"
+            android:layout_width="0dip"
+            android:layout_weight="8"
+            android:layout_gravity="center" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_between_widgets"
+        android:layout_marginBottom="@dimen/margin_between_widgets">
+        
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:text="@string/stressed"
+            android:singleLine="false"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/small_font_size" />
+        
+        <RadioGroup 
+            android:id="@+id/groupStress"
+            android:layout_width="0dip"
+            android:layout_weight="5"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            
+            <RadioButton 
+                android:id="@+id/stress5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/five"/>
+            
+            <RadioButton 
+                android:id="@+id/stress4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/four"/>
+            
+            <RadioButton 
+                android:id="@+id/stress3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/three"/>
+            
+            <RadioButton 
+                android:id="@+id/stress2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/two"/>
+            
+            <RadioButton 
+                android:id="@+id/stress1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/one"/>
+            
+        </RadioGroup>
+        
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="@string/not_stressed"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="@dimen/small_font_size" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/margin_between_widgets" >
+        
+        <View
+            android:layout_height="1dip"
+            android:background="#0099CC"
+            android:layout_width="0dip"
+            android:layout_weight="8"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>

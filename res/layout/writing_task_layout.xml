@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parentLayout">
+ -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:keepScreenOn="true">
+        
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="2">
+	    <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:layout_margin="10dip">
+		    <LinearLayout 
+		        android:id="@+id/layoutProgressBar"
+		        android:layout_width="match_parent"
+		        android:layout_height="0dip"
+		        android:layout_weight="1"
+		        android:orientation="vertical">
+		        
+		        <TextView
+		            android:layout_width="wrap_content"
+		            android:layout_height="0dip"
+		            android:layout_weight="1"
+		            android:text="@string/remaining_time"
+		            android:gravity="center"
+		            android:layout_gravity="center" />
+		            
+		        <ProgressBar 
+		            android:id="@+id/progressTimingBar"
+		            android:layout_width="match_parent"
+		            android:layout_height="0dip"
+		            android:layout_weight="1"
+		            android:layout_marginLeft="10dip"
+		            android:layout_marginRight="10dip"
+		            android:max="100"
+		            android:progress="100"
+		            style="@android:style/Widget.Holo.ProgressBar.Horizontal" />
+		    </LinearLayout>
+	    </LinearLayout>
+		    <ScrollView 
+		        android:id="@+id/scrollWrite"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="6"
+	            android:layout_margin="@dimen/minimum_margin_widget">
+			        
+		        <LinearLayout 
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:orientation="vertical">
+		            
+				    <TextView 
+				        android:id="@+id/textViewParagraph"
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:layout_weight="1"
+				        android:singleLine="false"
+				        android:maxLines="20"
+				        android:layout_gravity="top"
+				        android:layout_marginTop="@dimen/minimum_margin_widget" />
+				    
+				    <View
+				        android:layout_width="match_parent"
+				        android:layout_height="2dp"
+				        android:background="#33B5E5"
+				        android:layout_gravity="top"
+				        android:layout_marginTop="@dimen/minimum_margin_widget" />
+				    
+				    <EditText 
+				        android:id="@+id/editTextSubmitted"
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:layout_weight="4"
+				        android:scrollbars="vertical"
+				        android:textSize="15sp"
+				        android:maxLines="20"
+				        android:singleLine="false"
+				        android:layout_marginTop="@dimen/minimum_margin_widget"
+				        android:layout_marginBottom="@dimen/minimum_margin_widget"
+				        android:layout_gravity="top"
+				        android:gravity="top"
+				        android:hint="@string/write_paragraph_here" />
+				    
+				    <Button 
+				        android:id="@+id/buttonSubmit"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:text="@string/done"
+				        android:layout_gravity="end"
+				        android:onClick="submitAnswer" />
+		    </LinearLayout>
+	    </ScrollView>
+   </LinearLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        
+        <ch.qol.unige.smartphonetest.writetask.customkeyboard.KeyboardViewWithInfo
+        android:id="@+id/keyboardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="visible"
+        android:shadowRadius="2"
+        android:layout_gravity="center" />
+        
+    </LinearLayout>
+</LinearLayout>
+<!-- </RelativeLayout> -->

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/flipperLayout">
+
+    <!-- First layout to show to the user -->
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:weightSum="3" >
+	    
+	    <TextView 
+	        android:layout_width="match_parent"
+	        android:layout_height="0dip"
+	        android:layout_weight="1"
+	        android:textSize="50dp"
+	        android:gravity="center"
+	        android:layout_gravity="center"
+	        android:text="@string/start_from"
+	        android:keepScreenOn="true"/>
+	    
+	    <TextView
+	        android:id="@+id/startingValue"
+	        android:layout_width="match_parent"
+	        android:layout_height="0dip"
+	        android:textSize="80dp"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:layout_weight="1" />
+	</LinearLayout>
+	
+	<!-- Exercise layout, ViewFlipper flips between this and the previous one -->
+	
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:layout_margin="10dip"
+	    android:id="@+id/parentLayout">
+    
+    
+	    <LinearLayout 
+	        android:id="@+id/layoutProgressBar"
+	        android:layout_width="match_parent"
+	        android:layout_height="0dip"
+	        android:layout_weight="1"
+	        android:orientation="vertical">
+	        
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="0dip"
+	            android:layout_weight="1"
+	            android:text="@string/remaining_time"
+	            android:gravity="center"
+	            android:layout_gravity="center" />
+	            
+	        <ProgressBar 
+	            android:id="@+id/progressTimingBar"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="1"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:max="100"
+	            android:progress="100"
+	            style="@android:style/Widget.Holo.ProgressBar.Horizontal" />
+	    </LinearLayout>
+	    
+	    <LinearLayout 
+	        android:orientation="horizontal"
+	        android:layout_height="0dip"
+	        android:layout_width="match_parent"
+	        android:layout_weight="8"
+	        android:weightSum="9"
+	        android:layout_gravity="center"
+	        android:gravity="center">
+	        
+	        <LinearLayout 
+	            android:orientation="vertical"
+	            android:layout_width="0dip"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:weightSum="10"
+	            android:layout_gravity="center"
+	            android:gravity="center"
+	            android:layout_marginRight="@dimen/margin_between_widgets">
+	        
+	            <android.widget.VerticalSeekBar 
+	                android:id="@+id/verticalSeekBarPoints"
+	                android:layout_width="wrap_content"
+	                android:layout_height="0dip"
+	                style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+	                android:layout_weight="8"
+	                android:progress="0"
+	                android:max="100" />
+	            
+	        </LinearLayout>
+	        
+	        <LinearLayout 
+	            android:orientation="vertical"
+	            android:layout_width="0dip"
+	            android:layout_height="match_parent"
+	            android:layout_weight="8">
+	            
+	            <RelativeLayout 
+	                android:layout_width="wrap_content"
+	                android:layout_height="0dip"
+	                android:layout_weight="3">
+			        <TextView
+			            android:id="@+id/decreaseValue"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:textSize="100sp"
+			            android:textColor="#FF0000"
+			            android:layout_gravity="center_horizontal"
+			            android:layout_centerInParent="true"
+			            android:keepScreenOn="true" />
+			        
+			        <TextView
+		                android:id="@+id/feedTroll"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:textSize="30sp"
+		                android:textColor="#FFFFFF"
+		                android:text="@string/feed_troll"
+		                android:layout_centerInParent="true"
+		                android:gravity="center"
+		                android:visibility="invisible" />
+			        
+			        <TextView 
+			            android:id="@+id/yes"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:textSize="50sp"
+			            android:textColor="#FFFFFF"
+			            android:text="@string/yes"
+			            android:layout_centerInParent="true"
+			            android:gravity="center"
+			            android:visibility="invisible" />
+	    
+		        </RelativeLayout>
+		        <LinearLayout 
+		            android:layout_width="match_parent"
+		            android:layout_height="0dip"
+		            android:layout_weight="3"
+		            android:orientation="horizontal"
+		            android:gravity="center_horizontal" >
+		            
+		            <RelativeLayout 
+		                android:layout_width="0dip"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1"
+		                android:orientation="vertical" >
+		                
+		                <NumberPicker 
+		                    android:id="@+id/firstDigit"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="match_parent"
+		                    android:layout_margin="@dimen/margin_between_widgets"
+		                    android:descendantFocusability="blocksDescendants" />
+		                
+		                <ImageView
+		                    android:id="@+id/firstDigitWrong"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:scaleType="fitCenter"
+		                    android:src="@drawable/x"
+		                    android:visibility="gone"
+		                    android:layout_margin="0dip"
+		                    android:padding="0dip"
+		                    android:layout_centerVertical="true"
+		                    android:layout_centerHorizontal="true" />
+		                
+		            </RelativeLayout>
+		            
+		            <RelativeLayout 
+		                android:layout_width="0dip"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1">
+		    
+		                <NumberPicker 
+		                    android:id="@+id/secondDigit"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="match_parent"
+		                    android:layout_margin="@dimen/margin_between_widgets"
+		                    android:descendantFocusability="blocksDescendants"/>
+		    
+		                <ImageView
+		                    android:id="@+id/secondDigitWrong"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:scaleType="fitCenter"
+		                    android:src="@drawable/x"
+		                    android:visibility="gone"
+		                    android:layout_margin="0dip"
+		                    android:padding="0dip"
+		                    android:layout_centerVertical="true"
+		                    android:layout_centerHorizontal="true" />
+		    
+		            </RelativeLayout>
+		            
+		            <RelativeLayout 
+		                android:layout_width="0dip"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1">
+		                
+		                 <NumberPicker 
+		                    android:id="@+id/thirdDigit"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="match_parent"
+		                    android:layout_gravity="center_vertical"
+		                    android:gravity="center"
+		                    android:layout_margin="@dimen/margin_between_widgets"
+		                    android:descendantFocusability="blocksDescendants"/>
+		                 
+		                 <ImageView
+		                    android:id="@+id/thirdDigitWrong"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:scaleType="fitCenter"
+		                    android:src="@drawable/x"
+		                    android:visibility="gone"
+		                    android:layout_margin="0dip"
+		                    android:padding="0dip"
+		                    android:layout_centerVertical="true"
+		                    android:layout_centerHorizontal="true" />
+		            </RelativeLayout>
+		            
+		           <RelativeLayout 
+		               android:layout_width="0dip"
+		               android:layout_height="match_parent"
+		               android:layout_weight="1">
+		               
+		               <NumberPicker 
+		                    android:id="@+id/fourthDigit"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="match_parent"
+		                    android:layout_gravity="center_vertical"
+		                    android:gravity="center"
+		                    android:layout_margin="@dimen/margin_between_widgets"
+		                    android:descendantFocusability="blocksDescendants"/>
+		               
+		               <ImageView
+		                    android:id="@+id/fourthDigitWrong"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:scaleType="fitCenter"
+		                    android:src="@drawable/x"
+		                    android:visibility="gone"
+		                    android:layout_margin="0dip"
+		                    android:padding="0dip"
+		                    android:layout_centerVertical="true"
+		                    android:layout_centerHorizontal="true" />
+		           </RelativeLayout>
+		            
+		        </LinearLayout>
+	        </LinearLayout>
+	    </LinearLayout>
+	    
+	    <LinearLayout 
+            android:layout_height="0dip"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            
+            <Button
+                android:id="@+id/buttonSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                android:layout_gravity="center_horizontal"
+                android:onClick="submitAnswer" />
+        </LinearLayout>
+    
+    </LinearLayout>
+
+</ViewFlipper>

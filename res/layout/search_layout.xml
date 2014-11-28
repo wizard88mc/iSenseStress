@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/parentLayout" >
+    
+    <LinearLayout 
+        android:id="@+id/layoutProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:text="@string/remaining_time"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_between_widgets" />
+            
+        <ProgressBar 
+            android:id="@+id/progressTimingBar"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="@dimen/margin_between_widgets"
+            android:max="100"
+            android:progress="100"
+            style="@android:style/Widget.Holo.ProgressBar.Horizontal" />
+    </LinearLayout>
+    
+    <ch.qol.unige.smartphonetest.searchtask.VerticalScrollViewWithInfo 
+        android:id="@+id/scrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="5"
+        android:layout_margin="@dimen/margin_between_widgets"
+        android:fadeScrollbars="false"
+        android:scrollbars="horizontal|vertical">
+        
+        <ch.qol.unige.smartphonetest.searchtask.HorizontalScrollViewWithInfo
+            android:id="@+id/scrollHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:scrollbars="horizontal|vertical">
+            
+            <TableLayout 
+		        android:id="@+id/tableLayout"
+		        android:layout_width="wrap_content"
+		        android:layout_height="match_parent">
+                
+		    </TableLayout>
+            
+        </ch.qol.unige.smartphonetest.searchtask.HorizontalScrollViewWithInfo>
+    </ch.qol.unige.smartphonetest.searchtask.VerticalScrollViewWithInfo>
+
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/margin_between_widgets">
+        
+        <Button
+            android:id="@+id/buttonSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_gravity="center"
+            android:text="@string/done"
+            android:onClick="submitAnswer" />
+        
+    </LinearLayout>
+</LinearLayout>

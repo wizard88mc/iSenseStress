@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/make_resume"
+        android:textSize="@dimen/m_font_size"
+        android:layout_margin="@dimen/margin_between_widgets" />
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_between_widgets">
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_word_write"
+            android:layout_marginRight="@dimen/margin_between_widgets"/>
+        
+        <TextView
+            android:id="@+id/totalNumberWords" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/layout_correct_words"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_between_widgets">
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_correct_words"
+            android:layout_marginRight="@dimen/margin_between_widgets"/>
+        
+        <TextView 
+            android:id="@+id/totalCorrectWords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/layout_wrong_words"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_between_widgets">
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_wrong_words"
+            android:layout_marginRight="@dimen/margin_between_widgets"/>
+        
+        <TextView 
+            android:id="@+id/totalWrongWords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0" />
+    </LinearLayout>
+
+</LinearLayout>

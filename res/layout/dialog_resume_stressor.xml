@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+        
+       <TextView 
+        android:id="@+id/firstValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/minimum_margin_widget"
+        android:gravity="end"
+        android:textSize="@dimen/l_font_size"
+        android:layout_centerHorizontal="true" />
+       
+       <TextView 
+           android:id="@+id/minus_sign"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@id/firstValue"
+           android:layout_marginTop="@dimen/minimum_margin_widget"
+           android:text="-"
+           android:layout_marginLeft="@dimen/margin_between_widgets"
+           android:textSize="@dimen/l_font_size" />
+       
+       <TextView
+           android:id="@+id/secondValue"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/firstValue"
+           android:layout_alignRight="@id/firstValue"
+           android:gravity="end"
+           android:textSize="@dimen/l_font_size" />
+       
+       <LinearLayout 
+           android:id="@+id/line_result"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/secondValue"
+           android:weightSum="10"
+           android:layout_marginTop="@dimen/minimum_margin_widget"
+           android:layout_marginBottom="@dimen/minimum_margin_widget"
+           android:gravity="center">
+           
+           <View
+	           android:layout_width="0dip"
+	           android:layout_height="2dip"
+	           android:layout_weight="7"
+	           android:layout_marginLeft="@dimen/margin_between_widgets"
+	           android:layout_marginRight="@dimen/margin_between_widgets"
+	           android:background="#0099CC" />
+               
+       </LinearLayout>
+       
+       <TextView
+           android:id="@+id/answer"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/line_result"
+           android:layout_alignRight="@id/secondValue"
+           android:textSize="@dimen/l_font_size" 
+           android:layout_centerHorizontal="true"
+           android:gravity="center_horizontal" />
+       
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toLeftOf="@id/firstValue"
+           android:layout_below="@id/line_result"
+           android:text="@string/question_marks"
+           android:textSize="@dimen/l_font_size"
+           android:layout_marginRight="@dimen/margin_between_widgets" />
+       
+       <TextView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@id/minus_sign"
+           android:layout_below="@id/line_result"
+           android:text="@string/question_marks"
+           android:textSize="@dimen/l_font_size"/>
+           
+   </RelativeLayout>

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/margin_between_widgets"
+    android:padding="@dimen/margin_between_widgets">
+
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal">
+        
+        <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="center_horizontal"
+	        android:text="@string/choose_name_avatar"
+	        android:textSize="@dimen/m_font_size"/>   
+	        
+         <EditText 
+	        android:id="@+id/nickname"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/name_hint"/>
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"> 
+    
+        <ScrollView 
+           android:layout_width="match_parent"
+           android:layout_height="300dip">
+           
+           <TableLayout 
+               android:id="@+id/tableAvatars"
+               android:layout_width="match_parent"
+               android:layout_height="300dip">
+               
+               <TableRow 
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:weightSum="3"
+                   android:layout_gravity="center_horizontal"
+                   android:gravity="center_horizontal">
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/alien"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:clickable="true"
+                       android:tag="alien" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/bat"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="bat" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/casper"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="casper"/>
+                   
+               </TableRow>
+               
+               <TableRow 
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:weightSum="3"
+                   android:layout_gravity="center_horizontal"
+                   android:gravity="center_horizontal">
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/chucky"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="chucky" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/devil"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="devil" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/dracula"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="dracula"/>
+                   
+               </TableRow>
+               
+               <TableRow 
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:weightSum="3"
+                   android:layout_gravity="center_horizontal"
+                   android:gravity="center_horizontal">
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/frankenstein"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="frankenstein" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/freddie"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="freddie" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/ghost"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="ghost" />
+                   
+               </TableRow>
+               
+               <TableRow 
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:weightSum="3"
+                   android:layout_gravity="center_horizontal"
+                   android:gravity="center_horizontal">
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/gomez"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="gomez" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/jackskellington"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="jsckskellington" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/jason"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="jason"/>
+                   
+               </TableRow>
+               
+               <TableRow 
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:weightSum="3"
+                   android:layout_gravity="center_horizontal"
+                   android:gravity="center_horizontal">
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/kokey"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="kokey" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/mike"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="mike" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/mummy"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true" 
+                       android:tag="mummy"/>
+                   
+               </TableRow>
+               
+               <TableRow 
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:weightSum="3"
+                   android:layout_gravity="center_horizontal"
+                   android:gravity="center_horizontal">
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/pumpkin"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="pumpkin" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/scream"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="scream" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/skull"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true" 
+                       android:tag="skull"/>
+                   
+               </TableRow>
+               
+               <TableRow 
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:weightSum="3"
+                   android:layout_gravity="center_horizontal"
+                   android:gravity="center_horizontal">
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/slimer"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="slimer" />
+                   
+                   <ImageView 
+                       android:layout_width="0dip"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/squash"
+                       android:padding="@dimen/margin_between_widgets"
+                       android:layout_marginLeft="@dimen/margin_between_widgets"
+                       android:layout_marginRight="@dimen/margin_between_widgets"
+                       android:adjustViewBounds="true"
+                       android:tag="squash" />
+                   
+               </TableRow>
+               
+           </TableLayout>
+           
+       </ScrollView>
+
+    </LinearLayout>
+</LinearLayout>
