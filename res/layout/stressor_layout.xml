@@ -273,7 +273,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/submit"
                 android:layout_gravity="center_horizontal"
-                android:onClick="submitAnswer" />
+                android:onClick="submitAnswer"
+                android:enabled="false" />
         </LinearLayout>
     
     </LinearLayout>

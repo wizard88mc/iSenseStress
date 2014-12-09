@@ -18,12 +18,16 @@ import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,11 +53,22 @@ public class SearchTaskView extends ch.qol.unige.smartphonetest.baseMVC.View
 	
 	private int imageSize;
 	
+	private Animation animationArrows = null;
+	private ImageView arrowsUp = null;
+	private ImageView arrowsDown = null;
+	private ImageView arrowsLeft = null;
+	private ImageView arrowsRight = null;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search_layout);
+		
+		arrowsUp = (ImageView) findViewById(R.id.arrowsUp);
+		arrowsLeft = (ImageView) findViewById(R.id.arrowsLeft);
+		arrowsRight = (ImageView) findViewById(R.id.arrowsRight);
+		arrowsDown = (ImageView) findViewById(R.id.arrowsDown);
 		
 		progressDialogWriting = new ProgressDialog(SearchTaskView.this);
 		progressDialogWriting.setIndeterminate(true);
@@ -77,6 +92,37 @@ public class SearchTaskView extends ch.qol.unige.smartphonetest.baseMVC.View
 				stepsToStartANewExercise();
 			}
 		}.start();
+		
+		animationArrows = new AlphaAnimation(0.0f, 0.7f);
+		animationArrows.setDuration(500);
+		animationArrows.setStartOffset(10);
+		animationArrows.setRepeatMode(Animation.REVERSE);
+		animationArrows.setRepeatCount(3);
+		
+		animationArrows.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				arrowsRight.setVisibility(View.VISIBLE);
+				arrowsLeft.setVisibility(View.VISIBLE);
+				arrowsUp.setVisibility(View.VISIBLE);
+				arrowsDown.setVisibility(View.VISIBLE);
+				arrowsUp.invalidate(); arrowsDown.invalidate();
+				arrowsLeft.invalidate(); arrowsRight.invalidate();
+				Log.w("ANIMATION", "Animation started");
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				arrowsLeft.setVisibility(View.GONE);
+				arrowsRight.setVisibility(View.GONE);
+				arrowsUp.setVisibility(View.GONE);
+				arrowsDown.setVisibility(View.GONE);
+			}
+		});
 	}
 	
 	/**
@@ -336,6 +382,18 @@ public class SearchTaskView extends ch.qol.unige.smartphonetest.baseMVC.View
 			startAudioVideoStressors();
 			controller.exerciseStarted();
 		}
+		
+		runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+				arrowsUp.startAnimation(animationArrows);
+				arrowsDown.startAnimation(animationArrows);
+				arrowsLeft.startAnimation(animationArrows);
+				arrowsRight.startAnimation(animationArrows);
+			}
+		});
+		
 	}
 	
 	/**

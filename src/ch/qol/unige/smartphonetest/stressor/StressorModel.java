@@ -138,7 +138,7 @@ public class StressorModel extends Model
 		 */
 		if (availableTime < MAX_AVAILABLE_TIME)
 		{
-			availableTime += 500;
+			availableTime += 750;
 			if (availableTime > MAX_AVAILABLE_TIME)
 			{
 				availableTime = MAX_AVAILABLE_TIME;

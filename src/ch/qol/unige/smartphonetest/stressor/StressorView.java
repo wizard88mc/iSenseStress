@@ -2,6 +2,7 @@ package ch.qol.unige.smartphonetest.stressor;
 
 import java.util.ArrayList;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import ch.qol.unige.smartphonetest.R;
@@ -169,7 +170,7 @@ public class StressorView extends ch.qol.unige.smartphonetest.baseMVC.View
 								{
 									try 
 									{
-										if (Math.random() < 1.0)
+										if (Math.random() < 0.75)
 										{		
 											controller.trollIsHungry();
 											
@@ -187,7 +188,7 @@ public class StressorView extends ch.qol.unige.smartphonetest.baseMVC.View
 										exc.printStackTrace();
 									}	
 								}
-							}, controller.getTotalTimeDuration() - 1, 2, TimeUnit.MINUTES);	
+							}, controller.getTotalTimeDuration() - 2, 2, TimeUnit.MINUTES);	
 						}
 					}
 				});
@@ -304,6 +305,25 @@ public class StressorView extends ch.qol.unige.smartphonetest.baseMVC.View
 				numberPickerDigits.get(i).setValue(Integer.valueOf(digit));
 			}
 		}
+		
+		ScheduledThreadPoolExecutor executorActivateButton = new ScheduledThreadPoolExecutor(1);
+		executorActivateButton.setExecuteExistingDelayedTasksAfterShutdownPolicy(false);
+		executorActivateButton.schedule(new Runnable() {
+			
+			@Override
+			public void run() {
+				runOnUiThread(new Runnable() {
+					
+					@Override
+					public void run() {
+						StressorView.this.findViewById(R.id.buttonSubmit).setEnabled(true);
+						
+					}
+				});
+				
+			}
+		}, 1000, TimeUnit.MILLISECONDS);
+		
 	}
 	
 	/**
@@ -355,7 +375,7 @@ public class StressorView extends ch.qol.unige.smartphonetest.baseMVC.View
 	{
 		super.resetWidgets();
 		
-		findViewById(R.id.buttonSubmit).setEnabled(true);
+		//findViewById(R.id.buttonSubmit).setEnabled(true);
 		
 		if (stress) 
 		{

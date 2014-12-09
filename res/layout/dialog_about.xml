@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:padding="@dimen/minimum_margin_widget">
+
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/l_font_size"
+        android:text="@string/about"
+        android:layout_marginBottom="@dimen/minimum_margin_widget" />
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="9"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/minimum_margin_widget">
+        
+        <ImageView 
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:src="@drawable/qol"
+            android:adjustViewBounds="true"
+            android:contentDescription="Quality Of Life Group"
+            android:layout_marginRight="@dimen/minimum_margin_widget" />
+        
+        <ImageView 
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:src="@drawable/unipd"
+            android:adjustViewBounds="true"
+            android:layout_marginLeft="@dimen/minimum_margin_widget"
+            android:contentDescription="University of Padua, Italy" />
+        
+        <!-- <ImageView 
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/unigered"
+            android:contentDescription="University of Geneva (Switzerland)" /> -->
+        
+    </LinearLayout>
+    
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disclaimer"
+        android:layout_marginBottom="@dimen/minimum_margin_widget"/>
+
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="9">
+        
+        <TextView 
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" 
+            android:text="@string/website" />
+        
+        <TextView
+            android:id="@+id/websiteLink"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="5" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="9">
+        
+        <TextView 
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/contact" />
+        
+        <TextView 
+            android:id="@+id/developerMail"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"/>
+    </LinearLayout>
+    
+</LinearLayout>

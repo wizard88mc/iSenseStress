@@ -11,7 +11,10 @@
         android:layout_height="0dip"
         android:layout_weight="1"
         android:textSize="@dimen/l_font_size"
-        android:text="@string/search_this_icons"/>
+        android:text="@string/search_this_icons"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/minimum_margin_widget" />
     
     <TableLayout 
         android:id="@+id/tableLayoutListIcons"

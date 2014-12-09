@@ -12,6 +12,7 @@ import java.util.TimeZone;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import ch.qol.unige.smartphonetest.DialogPersonalInformation.DialogPersonalInformationInterface;
 import ch.qol.unige.smartphonetest.R;
 import ch.qol.unige.network.ConnectionManager;
 import ch.qol.unige.smartphonetest.dataloggers.Loggers;
@@ -52,7 +53,7 @@ public class MainActivity extends ActionBarActivity
 	implements Survey.SurveyDialogResultInterface,
 		AsyncFileSender.AsyncFileSenderInterface, 
 		DialogChooseNameAndAvatar.DialogChooseNameAndAvatarInterface, 
-		DialogFinalRank.DialogFinalRankInterface 
+		DialogFinalRank.DialogFinalRankInterface, DialogPersonalInformationInterface 
 {	
 	private final static String LOG_STRING = "MAIN_ACTIVITY";
 	private static final int ACTIVITY_EXECUTION_CODE = 1;
@@ -75,6 +76,10 @@ public class MainActivity extends ActionBarActivity
 	private ProgressDialog dialogPauseBetweenTwoExercises = null;
 	private ProgressDialog dialogWaitingFinalRank = null;
 	
+	private DialogPersonalInformation dialogPersonalInformation = null;
+	private DialogVisitWebsite mDialogVisitWebsite = null;
+	private DialogAboutUs mDialogAboutUs = null;
+	
 	private boolean gameInProgress = false;
 	private boolean gameCompleted = false;
 	
@@ -91,7 +96,7 @@ public class MainActivity extends ActionBarActivity
 		
 		mLoggers = new Loggers(this);
 		
-		smartphoneSettingsAndSpecsLog();
+		//smartphoneSettingsAndSpecsLog();
 		
 		/**
 		 * Creating the set of exercises, in particular: 
@@ -105,7 +110,7 @@ public class MainActivity extends ActionBarActivity
 		
 		//exercises = exercisesMovingForward;
 		
-		/*Intent intent = new Intent(this, StressorView.class);
+		/*Intent intent = new Intent(this, SearchTaskView.class);
 		intent.putExtra(StepSettings.STRESS, false);
 		intent.putExtra(StepSettings.REPETITIONS, 3);
 		intent.putExtra(StepSettings.MINUTE_DURATION, -1);
@@ -130,9 +135,15 @@ public class MainActivity extends ActionBarActivity
 	{
 		switch(item.getItemId())
 		{
-			case (R.id.action_data) :
-			{
+			case (R.id.action_data) : {
+				
 				sendRecoveredData();
+				return true;
+			}
+			case (R.id.action_about): {
+				
+				mDialogAboutUs = new DialogAboutUs();
+				mDialogAboutUs.show(getFragmentManager(), null);
 				return true;
 			}
 			default:
@@ -357,7 +368,8 @@ public class MainActivity extends ActionBarActivity
 	 * Writes inside the log file preliminary info about the smartphone used 
 	 * (Manufacturer and Model) and about the screen dimensions
 	 */
-	private void smartphoneSettingsAndSpecsLog()
+	private void smartphoneSettingsAndSpecsLogAndUserSettings(String gender, 
+			String age, String email, String nickname)
 	{
 		DisplayMetrics metrics = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -378,6 +390,8 @@ public class MainActivity extends ActionBarActivity
 				System.getProperty("line.separator") + 
 				" * Language: " + Locale.getDefault().getLanguage() + " *" +
 				System.getProperty("line.separator") +
+				" * User: " + gender + "," + age + "," + email + "," + nickname + 
+				" *" + System.getProperty("line.separator") + 
 				"/*********************************/";
 		
 		mLoggers.writeOnSettingsLogger(toWrite);
@@ -393,12 +407,17 @@ public class MainActivity extends ActionBarActivity
 		return this.name;
 	}
 	
+	public void startOfflineGameButtonClicked(View view) {
+	
+		dialogPersonalInformation = new DialogPersonalInformation();
+		dialogPersonalInformation.show(getFragmentManager(), null);
+	}
+	
 	/**
 	 * Method called when the user click on the button to start the offline 
 	 * game. It first randomize the set of exercises and start the game
-	 * @param view
 	 */
-	public void startOfflineGame(View view)
+	public void startOfflineGame()
 	{
 		onlineGame = false;
 		if (allExercisesToPerform.size() != 1)
@@ -810,13 +829,20 @@ public class MainActivity extends ActionBarActivity
 	{
 		if (allFilesSent)
 		{
-			dialogUploadData.dismiss();
+			if (dialogUploadData != null) {
+				dialogUploadData.dismiss();
+				dialogUploadData = null;
+			}
+			
 			Toast.makeText(this, R.string.thanks, Toast.LENGTH_LONG).show();
 			if (findViewById(R.id.buttonExit) != null)
 			{
 				findViewById(R.id.buttonExit).setEnabled(true);
 				findViewById(R.id.buttonRestart).setEnabled(true);
 			}
+			
+			mDialogVisitWebsite = new DialogVisitWebsite();
+			mDialogVisitWebsite.show(getFragmentManager(), null);
 		}
 		else
 		{
@@ -1073,8 +1099,17 @@ public class MainActivity extends ActionBarActivity
 				dialogConnectionNotWorking.setCancelable(false);
 				dialogConnectionNotWorking.setCanceledOnTouchOutside(false);
 				dialogConnectionNotWorking.show();
-				
 			}
 		});
+	}
+
+	@Override
+	public void saveUserInformation(String gender, String age, String email,
+			String nickname) {
+		
+		dialogPersonalInformation.dismiss();
+		
+		smartphoneSettingsAndSpecsLogAndUserSettings(gender, age, email, nickname);
+		startOfflineGame();
 	}
 }

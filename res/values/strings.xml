@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">iSenseStress</string>
+    <string name="app_name">QoL Smartphone Test</string>
     <string name="fake_app_name">QoL Smartphone Test</string>
     <string name="record_data">Record data</string>
-    <string name="data">Data</string>
+    <string name="data">Send backup data</string>
     <string name="stop_record_data">Stop record</string>
     <string name="title_dialog_survey">Questions</string>
     <string name="sure_dialog_survey">OK I\'m sure !!</string>
@@ -21,7 +21,7 @@
     <string name="avatar">Choose an avatar</string>
     <string name="remaining_time">Remaining time: </string>
     <string name="done">OK I\'ve done it.</string>
-    <string name="search_this_icons">Let\'s find this icons &#8230;</string>
+    <string name="search_this_icons">Find all the occurrences of these icons &#8230;</string>
     <string name="ready_to_start">OK I\'m ready to go!</string>
     <string name="offline_game">Let\'s start</string>
     <string name="online_game">Play online</string>
@@ -63,6 +63,9 @@
     <string name="uploading">Uploading data.</string>
     <string name="message_uploading">Uploading your data. Please Wait.</string>
     <string name="thanks">Upload completed. Thank you.</string>
+    <string name="thank_you">Thank you</string>
+    <string name="lottery_gift">Lottery info</string>
+    <string name="further_info">For further info about the lottery, please visit:</string>
     <string name="connecting">Connecting</string>
     <string name="connecting_please_wait">Waiting for the game. Please be patient.</string>
     <string name="please_provide_nickname">Please provide a nickname!</string>
@@ -80,6 +83,7 @@
     <string name="network_not_working">Network problem. Please try again.</string>
     <string name="retry">Retry</string>
     <string name="discard">Discard</string>
+    <string name="proceed">Continue</string>
     <string name="wait_final_results">Waiting for the final result. Please be patient.</string>
     <string name="feed_troll">Troll is hungry\nFeed with some points :)</string>
     <string name="restart">Restart</string>
@@ -92,4 +96,17 @@
     <string name="relax_text">Now just relax and enjoy the music...</string>
     <string name="and_now">And now...</string>
     <string name="some_math_problems">... some mathematical problems</string>
+    <string name="gender">Gender: </string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="age">Age:</string>
+    <string name="nickname">Nickname:</string>
+    <string name="email">Email: </string>
+    <string name="error_user_info">Please provide all the necessary information before continue.</string>
+    <string name="input_user_info_not_correct">THe info provided are not correct. Please check them.</string>
+    <string name="your_information">Some info about you</string>
+    <string name="about">About</string>
+    <string name="disclaimer">This application was developed by the University of Geneva and the University of Padua (Italy). No personal data will be provided to any third party and it will be used only for research purposes and for the final lottery. For any further info feel free to contact us.</string>
+	<string name="website">Website: </string>
+	<string name="contact">Contact us:</string>
 </resources>
