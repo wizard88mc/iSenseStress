@@ -83,8 +83,9 @@ public class MainActivity extends ActionBarActivity
 	private boolean gameInProgress = false;
 	private boolean gameCompleted = false;
 	
-	private String name = null;
+	private String name = "Prova";
 	private String avatar = null;
+	private String email = "pinco@pallo.com";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -107,6 +108,8 @@ public class MainActivity extends ActionBarActivity
 		 * 1) Relax - Search - Write - STOP - Stressor - Search (Stress) - Write (Stress) 
 		 */
 		setupExercises();
+		
+		sendUserInfoForLottery();
 		
 		//exercises = exercisesMovingForward;
 		
@@ -748,6 +751,25 @@ public class MainActivity extends ActionBarActivity
 		setContentView(R.layout.layout_greetings);
 	}
 	
+	public void sendUserInfoForLottery() {
+		
+		NetworkInfo info = (NetworkInfo) 
+				((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE))
+					.getActiveNetworkInfo();
+		
+		if (info == null || !info.isConnected())
+		{
+			Toast.makeText(this, R.string.no_network, Toast.LENGTH_LONG).show();
+			return;
+		}
+		else {
+			
+			AsyncUserRegister mAsyncUserRegister = new AsyncUserRegister();
+			mAsyncUserRegister.doInBackground(name, email);
+			
+		}
+	}
+	
 	/**
 	 * Method called to retrieve all the files created by the application and 
 	 * to send it to the server that has to store this data
@@ -1110,6 +1132,7 @@ public class MainActivity extends ActionBarActivity
 		dialogPersonalInformation.dismiss();
 		
 		smartphoneSettingsAndSpecsLogAndUserSettings(gender, age, email, nickname);
+		this.name = nickname; this.email = email;
 		startOfflineGame();
 	}
 }
