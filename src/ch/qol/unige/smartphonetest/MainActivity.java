@@ -57,6 +57,7 @@ public class MainActivity extends ActionBarActivity
 {	
 	private final static String LOG_STRING = "MAIN_ACTIVITY";
 	private static final int ACTIVITY_EXECUTION_CODE = 1;
+	public static String IMEI = null;
 	
 	private static ArrayList<ArrayList<StepSettings>> allExercisesToPerform = null;
 	private static ArrayList<StepSettings> currentExercise = null;
@@ -108,8 +109,6 @@ public class MainActivity extends ActionBarActivity
 		 * 1) Relax - Search - Write - STOP - Stressor - Search (Stress) - Write (Stress) 
 		 */
 		setupExercises();
-		
-		sendUserInfoForLottery();
 		
 		//exercises = exercisesMovingForward;
 		
@@ -751,25 +750,6 @@ public class MainActivity extends ActionBarActivity
 		setContentView(R.layout.layout_greetings);
 	}
 	
-	public void sendUserInfoForLottery() {
-		
-		NetworkInfo info = (NetworkInfo) 
-				((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE))
-					.getActiveNetworkInfo();
-		
-		if (info == null || !info.isConnected())
-		{
-			Toast.makeText(this, R.string.no_network, Toast.LENGTH_LONG).show();
-			return;
-		}
-		else {
-			
-			AsyncUserRegister mAsyncUserRegister = new AsyncUserRegister();
-			mAsyncUserRegister.doInBackground(name, email);
-			
-		}
-	}
-	
 	/**
 	 * Method called to retrieve all the files created by the application and 
 	 * to send it to the server that has to store this data
@@ -801,6 +781,9 @@ public class MainActivity extends ActionBarActivity
 					dialogUploadData.show();
 				}
 			});
+			AsyncUserRegister mAsyncUserRegister = new AsyncUserRegister();
+			mAsyncUserRegister.execute(name, email, IMEI);
+			
 			AsyncFileSender sender = new AsyncFileSender(this);
 			sender.execute(new File[]{mLoggers.getFileLayoutLogger(), 
 					mLoggers.getFileRotationSensorLogger(),

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import ch.qol.unige.smartphonetest.MainActivity;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -34,8 +35,11 @@ public class BasicLogger {
 				+ today.get(Calendar.MILLISECOND);
 		}
 		
-		String filename = ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId() 
-				+ "_" + FILENAME_TIMESTAMP + "_" + prefix + ".csv";
+		MainActivity.IMEI = ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
+		
+		String filename =  MainActivity.IMEI + "_" + FILENAME_TIMESTAMP + "_" 
+				+ prefix + ".csv";
+		
 		
 		file = new File(context.getFilesDir(), filename);
 		

@@ -15,6 +15,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class AsyncUserRegister extends AsyncTask<String, Void, Boolean> {
 
@@ -24,6 +25,7 @@ public class AsyncUserRegister extends AsyncTask<String, Void, Boolean> {
 	protected Boolean doInBackground(String... elements) {
 		// elements[0]: name
 		// elements[1]: email
+		// elements[2]: imei
 		
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpPost httpPost = new HttpPost(HOST);
@@ -32,10 +34,11 @@ public class AsyncUserRegister extends AsyncTask<String, Void, Boolean> {
 			List<NameValuePair> data = new ArrayList<NameValuePair>(2);
 			data.add(new BasicNameValuePair("name", elements[0]));
 			data.add(new BasicNameValuePair("email", elements[1]));
+			data.add(new BasicNameValuePair("imei", elements[2]));
 			httpPost.setEntity(new UrlEncodedFormEntity(data));
 			
-			httpClient.execute(httpPost);
-			
+			HttpResponse response = httpClient.execute(httpPost);
+			Log.d("RESPONSE", response.toString());
 			return true;
 		}
 		catch(ClientProtocolException e) {
