@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class DialogVisitWebsite extends DialogFragment {
 
-	private static final String LINK = "<a href='http://trainutri.unige.ch/matteo/index_lottery.html'>Lottery Website Homepage</a>";
+	private static final String LINK = "<a href='http://trainutri.unige.ch/matteo/index.html'>Lottery Website Homepage</a>";
 	private View dialogWebsiteView = null;
 	
 	public Dialog onCreateDialog(Bundle savedInstanceState) {

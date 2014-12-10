@@ -811,7 +811,7 @@ public class MainActivity extends ActionBarActivity
 	public void restartFromBeginning(View view)
 	{
 		findViewById(R.id.buttonExit).setEnabled(false);
-		findViewById(R.id.buttonRestart).setEnabled(false);
+		//findViewById(R.id.buttonRestart).setEnabled(false);
 		
 		mLoggers.resetLoggers();
 		mLoggers = new Loggers(this);
@@ -843,7 +843,7 @@ public class MainActivity extends ActionBarActivity
 			if (findViewById(R.id.buttonExit) != null)
 			{
 				findViewById(R.id.buttonExit).setEnabled(true);
-				findViewById(R.id.buttonRestart).setEnabled(true);
+				//findViewById(R.id.buttonRestart).setEnabled(true);
 			}
 			
 			mDialogVisitWebsite = new DialogVisitWebsite();
