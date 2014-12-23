@@ -57,8 +57,8 @@ public class StressorController extends Controller
 		maxTimeAllowedScheduler.scheduleAtFixedRate(new Runnable() {
 			public void run()
 			{
-				maxTimeAllowedScheduler.shutdown();
 				StressorController.this.mandatoryStop = true;
+				maxTimeAllowedScheduler.shutdown();
 			}
 		}, maxTimeAllowed, maxTimeAllowed, TimeUnit.MINUTES);
 		
