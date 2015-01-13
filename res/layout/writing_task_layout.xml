@@ -69,6 +69,8 @@
 				        android:singleLine="false"
 				        android:maxLines="20"
 				        android:layout_gravity="top"
+				        android:textSize="15dip"
+				        android:textStyle="bold"
 				        android:layout_marginTop="@dimen/minimum_margin_widget" />
 				    
 				    <View
@@ -91,7 +93,8 @@
 				        android:layout_marginBottom="@dimen/minimum_margin_widget"
 				        android:layout_gravity="top"
 				        android:gravity="top"
-				        android:hint="@string/write_paragraph_here" />
+				        android:hint="@string/write_paragraph_here"
+				        android:textStyle="bold" />
 				    
 				    <Button 
 				        android:id="@+id/buttonSubmit"

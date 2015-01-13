@@ -112,8 +112,8 @@ public class MainActivity extends ActionBarActivity
 		
 		//exercises = exercisesMovingForward;
 		
-		/*Intent intent = new Intent(this, SearchTaskView.class);
-		intent.putExtra(StepSettings.STRESS, false);
+		Intent intent = new Intent(this, StressorView.class);
+		intent.putExtra(StepSettings.STRESS, true);
 		intent.putExtra(StepSettings.REPETITIONS, 3);
 		intent.putExtra(StepSettings.MINUTE_DURATION, -1);
 		startActivityForResult(intent, ACTIVITY_EXECUTION_CODE);
@@ -226,16 +226,16 @@ public class MainActivity extends ActionBarActivity
 		// First step is the survey
 		firstSet.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 1));
 		// We relax the user for 5 minutes
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.RELAX, 2, 5));
+		//firstSet.add(new StepSettings(StepSettings.ExerciseType.RELAX, 2, 5));
 		// Survey for the base tasks without stress
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 3));
+		//firstSet.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 3));
 		// Search + writing task
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.SEARCH, 4, 
-				false, 3, -1));
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.WRITE, 5, 
-				false, 3, -1));
+		//firstSet.add(new StepSettings(StepSettings.ExerciseType.SEARCH, 4, 
+		//		false, 3, -1));
+		//firstSet.add(new StepSettings(StepSettings.ExerciseType.WRITE, 5, 
+			//	false, 3, -1));
 		// Survey before the beginning of the stressor
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 6));
+		//firstSet.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 6));
 		// Stressor
 		firstSet.add(new StepSettings(StepSettings.ExerciseType.STRESSOR, 7, 
 				true, -1, 5));

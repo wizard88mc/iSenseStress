@@ -26,6 +26,7 @@
             android:layout_height="match_parent"
             android:text="@string/negative_valence"
             android:textSize="@dimen/small_font_size"
+            android:textStyle="bold"
             android:singleLine="false"
             android:layout_weight="1"
             android:gravity="center" />
@@ -76,6 +77,7 @@
             android:singleLine="false"
             android:textSize="@dimen/small_font_size"
             android:text="@string/positive_valence"
+            android:textStyle="bold"
             android:gravity="center" />
     </LinearLayout>
     
@@ -106,6 +108,7 @@
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:text="@string/low_energy"
+            android:textStyle="bold"
             android:singleLine="false"
             android:layout_weight="1"
             android:gravity="center"
@@ -156,6 +159,7 @@
             android:layout_height="wrap_content"
             android:singleLine="false"
             android:text="@string/high_energy"
+            android:textStyle="bold"
             android:gravity="center"
             android:textSize="@dimen/small_font_size" />
     </LinearLayout>
@@ -187,9 +191,11 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:text="@string/stressed"
+            android:textStyle="bold"
             android:singleLine="false"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_gravity="center_vertical"
             android:textSize="@dimen/small_font_size" />
         
         <RadioGroup 
@@ -238,6 +244,7 @@
             android:layout_height="wrap_content"
             android:singleLine="false"
             android:text="@string/not_stressed"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="@dimen/small_font_size" />
