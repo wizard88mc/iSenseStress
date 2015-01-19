@@ -112,7 +112,7 @@ public class MainActivity extends ActionBarActivity
 		
 		//exercises = exercisesMovingForward;
 		
-		Intent intent = new Intent(this, StressorView.class);
+		/*Intent intent = new Intent(this, StressorView.class);
 		intent.putExtra(StepSettings.STRESS, true);
 		intent.putExtra(StepSettings.REPETITIONS, 3);
 		intent.putExtra(StepSettings.MINUTE_DURATION, -1);
@@ -222,34 +222,63 @@ public class MainActivity extends ActionBarActivity
 		
 		allExercisesToPerform = new ArrayList<ArrayList<StepSettings>>();
 		
-		ArrayList<StepSettings> firstSet = new ArrayList<StepSettings>();
+		ArrayList<StepSettings> firstProtocol = new ArrayList<StepSettings>();
 		// First step is the survey
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 1));
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 1));
 		// We relax the user for 5 minutes
-		//firstSet.add(new StepSettings(StepSettings.ExerciseType.RELAX, 2, 5));
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.RELAX, 2, 5));
 		// Survey for the base tasks without stress
-		//firstSet.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 3));
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 3));
 		// Search + writing task
-		//firstSet.add(new StepSettings(StepSettings.ExerciseType.SEARCH, 4, 
-		//		false, 3, -1));
-		//firstSet.add(new StepSettings(StepSettings.ExerciseType.WRITE, 5, 
-			//	false, 3, -1));
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.SEARCH, 4, 
+				false, 3, -1));
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.WRITE, 5, 
+				false, 3, -1));
 		// Survey before the beginning of the stressor
-		//firstSet.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 6));
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 6));
 		// Stressor
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.STRESSOR, 7, 
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.STRESSOR, 7, 
 				true, -1, 5));
 		// Survey to test if user is effectively stressed
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 8));
-		// The two tasks in stressed condition (without timing)
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.SEARCH, 9, 
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 8));
+		// The two tasks in stressed condition (with timing)
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.SEARCH, 9, 
 				true, 3, -1));
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.WRITE, 10, 
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.WRITE, 10, 
 				true, 3, -1));
 		// Final survey
-		firstSet.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 11));
+		firstProtocol.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 11));
 		
-		allExercisesToPerform.add(firstSet);
+		allExercisesToPerform.add(firstProtocol);
+		
+		ArrayList<StepSettings> firstProtocolBackward = new ArrayList<StepSettings>();
+		// First step is the survey
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 1));
+		// Second step is the stressor
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.STRESSOR, 2, 
+				true, -1, 5));
+		//Survey to test if user is effectively stressed
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 3));
+		// The two tasks in stress mode
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.SEARCH, 4, 
+				true, 3, -1));
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.WRITE, 5, 
+				true, 3, -1));
+		// Survey after Stress Phase
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 6));
+		// Relax phase
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.RELAX, 7, 5));
+		// Survey after relax
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 8));
+		// Exercises in calm phase
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.SEARCH, 9, 
+				false, 3, -1));
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.WRITE, 10, 
+				false, 3, -1));
+		// Final survey
+		firstProtocolBackward.add(new StepSettings(StepSettings.ExerciseType.SURVEY, 11));
+		
+		allExercisesToPerform.add(firstProtocolBackward);
 		
 		ArrayList<StepSettings> secondSet = new ArrayList<StepSettings>();
 		// Survey
@@ -427,7 +456,18 @@ public class MainActivity extends ActionBarActivity
 			Collections.shuffle(allExercisesToPerform, new Random(System.nanoTime()));
 		}
 		currentIndexOfExercise = 0;
+		/**
+		 * Random choice between the normal protocol RELAX - STRESS and the 
+		 * backward option STRESS - RELAX
+		 */
 		currentExercise = allExercisesToPerform.get(0);
+		if (Math.random() > 0.5) {
+			currentExercise = allExercisesToPerform.get(1);
+			allExercisesToPerform.remove(0);
+		}
+		else {
+			allExercisesToPerform.remove(1);
+		}
 		currentIndexOfTask = -1; 
 		gameInProgress = true;
 		launchNewStepInsideAnExercise();
@@ -555,6 +595,11 @@ public class MainActivity extends ActionBarActivity
 		}	
 	}
 	
+	/**
+	 * Writes the protocol description (list of the steps of the protocol) on
+	 * the settings file
+	 * @param list the list of the steps of the protocol
+	 */
 	private void writeProtocolDescription(ArrayList<StepSettings> list) 
 	{
 		String toWrite = "** PROTOCOL: ";
@@ -567,6 +612,10 @@ public class MainActivity extends ActionBarActivity
 		mLoggers.writeNewStep(toWrite);
 	}
 
+	/**
+	 * Method called when the set of exercises of a particular step (in terms
+	 * of repetition or time) are completed.
+	 */
 	private void setOfExercisesCompleted()
 	{
 		/**
